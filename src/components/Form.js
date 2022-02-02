@@ -3,6 +3,7 @@ import { useContext } from "react";
 import  { useNavigate } from 'react-router-dom'
 import { engineContext } from "../context/engineContext";
 import Card from "./Card";
+import logo from '../assets/tesodev.png'
 
 const Form = () => {
   const { text,output,setText } = useContext(engineContext);
@@ -29,6 +30,7 @@ const Form = () => {
 
   return (
     <div className="search-bar">
+      <img src={logo} alt="logo" className="img" />
       <div className="form-outline">
         <input
           type="search"
@@ -60,10 +62,10 @@ const Form = () => {
           <div className="">
             <button
               type="button"
-              className="btn"
+              className="btn-more"
               onClick={goResult}
             >
-              Show More...
+              <b>Show More...</b>
             </button>
           </div>
         ) : null}
