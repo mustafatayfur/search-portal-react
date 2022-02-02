@@ -63,7 +63,7 @@ const Form = () => {
               className="btn"
               onClick={goResult}
             >
-              Click to Load More
+              Show More...
             </button>
           </div>
         ) : null}

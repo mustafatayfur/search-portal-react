@@ -1,21 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 body{
   background-color:darkgrey ; 
-  background-repeat: no-repeat;
-  background-size: cover;
   font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .search-bar{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-top: 100px;
 }
 
 .card{
-  background: linear-gradient(to bottom right, #212529 , gray);
-  box-shadow: 10px 10px lightgray;
+  /* background: linear-gradient(to bottom right, #212529 , gray); */
+  /* box-shadow: 10px 10px lightgray; */
   color: white;
 }
 
