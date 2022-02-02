@@ -43,7 +43,7 @@ const Form = () => {
         </button>
       </div>
 
-      <div>
+      <div className="add-btn">
         <button
           type="button"
           className="btn"
@@ -53,7 +53,7 @@ const Form = () => {
         </button>
       </div>
 
-      <div className="">
+      <div className="cards">
         {output.slice(0, 3).map((item, index) => <Card key={index} item={item} />)}
 
         {output.length>3 ? (

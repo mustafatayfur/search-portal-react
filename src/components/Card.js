@@ -12,7 +12,6 @@ const Card = ({item}) => {
         <h5 className="card-title"> {item[0]} </h5>
         <p className="card-text"> {item[1]}</p>
       </div>
-      <hr />
     </div>
     
   );
