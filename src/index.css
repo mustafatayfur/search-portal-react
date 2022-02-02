@@ -5,7 +5,8 @@
 }
 body{
   /* background-color:darkgrey ;  */
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content:center;
@@ -18,7 +19,6 @@ body{
   justify-content: center;
   align-items: center;
   margin-top: 40px;
-  min-width: 900px;
 }
 .img{
   margin-bottom: 40px;
@@ -32,7 +32,8 @@ body{
   margin-top: 20px;
 }
 .btn{
-  background-color: blue;
+  background-color: #204080;
+  ;
   color: white;
   border: none;
   margin-left: 5px;
@@ -40,35 +41,37 @@ body{
   height: 45px;
   border-radius: 10px;
   cursor: pointer;
-  min-width: 70px;
+ 
+}
+.show-more{
+  display: flex;
+  flex-direction: column;
+  margin: 30px 20px 10px 20px;
 }
 .btn-more{
-  /* position: relative;
-  top: 50%; */
-  /* transform: translateX(250%) translateY(-25%); */
-  min-width: 100px;
-  margin: 0.5vw 15vw;
   border: none;
   cursor: pointer;
 }
 .cards{
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 5px;
   width: 40vw;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content:center;
-  
+  min-width: 300px;
 
 }
 
 .card{
   margin: 10px;
- display: flex;
- flex-direction: row;
- justify-content: space-between;
- border-bottom: 1px solid rgb(155, 154, 154);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(155, 154, 154);
+  height: 60px;
+  color: #484848;
 }
 .card-right{
   flex-basis: 50%;
@@ -76,9 +79,18 @@ body{
 .card-left{
   flex-basis: 50%;
 }
+.card-title{
+  min-width:50px;
+  margin-bottom: 0;
+}
 .card-left p{
     font-size: 0.7rem;
     font-weight: 100;
+}
+.card-text{
+  font-size: 12px;
+  font-weight: bold;
+  margin:0;
 }
 .card:hover{
   opacity: 0.8;
