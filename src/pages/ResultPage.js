@@ -22,6 +22,7 @@ const ResultPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [cardPerPage, setCardPerPage] = useState(5);
 
+
   const indexOfLastCard = currentPage * cardPerPage;
   const indexofFirstCard = indexOfLastCard - cardPerPage;
   const currentCards = output.slice(indexofFirstCard, indexOfLastCard);
@@ -29,6 +30,8 @@ const ResultPage = () => {
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+ 
 
   //Sorting
 
@@ -134,7 +137,7 @@ const ResultPage = () => {
           <Card key={index} item={item} />
         ))}
       </div>
-      {output.length > 3 ? (
+      {output.length > 5 ? (
         <Pagination
           paginate={paginate}
           output={output}
