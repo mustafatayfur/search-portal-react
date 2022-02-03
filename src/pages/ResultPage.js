@@ -36,9 +36,23 @@ const ResultPage = () => {
     output.sort();
     setOutput([...output]);
   };
+  const handleAlphabeticReverse = (output) => {
+    output.sort().reverse();
+    setOutput([...output]);
+  };
 
   const handleDate = (output) => {
     output.sort((a, b) =>
+      b[3]
+        .split("/")
+        .reverse()
+        .join()
+        .localeCompare(a[3].split("/").reverse().join())
+    );
+    setOutput([...output]);
+  };
+  const handleDateReverse = (output) => {
+    output.sort((b, a) =>
       b[3]
         .split("/")
         .reverse()
@@ -93,12 +107,15 @@ const ResultPage = () => {
               </a>
             </li>
             <li>
-              <a href='#'>
+              <a 
+                onClick={() => handleAlphabeticReverse(output)}
+                href='#'>
                 Name descending
               </a>
             </li>
             <li>
-              <a href='#'>
+              <a href='#'
+              onClick={() => handleDateReverse(output)}>
                 Year ascending
               </a>
             </li>

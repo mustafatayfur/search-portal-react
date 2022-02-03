@@ -155,10 +155,10 @@ top: 27px;
   background-color: white;
 }
 .dropdown__menu ul li{
-  width: 120px;
+  width: 105px;
   padding: 10px ;
   list-style-type: none;
-  margin-left: -20px;
+  margin-left: -40px;
   padding: 3px 0px;
 }
 .dropdown__menu ul li a{
@@ -167,7 +167,28 @@ top: 27px;
   display: flex;
   justify-content: flex-start;  
 }
+.dropdown__menu ul li a:hover{
+  background-color: rgb(202, 200, 200);
+}
 
+/* Pagination ///////////*/
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+}
+.pagination li {
+  list-style-type: none;
+  border:1px solid rgb(155, 155, 155);
+  border-radius: 4px;
+  margin: 4px;
+}
+.pagination li a{
+  text-decoration: none;
+  margin:0px 5px;
+  font-size: 12px;
+}
 
 
 
