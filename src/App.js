@@ -30,6 +30,7 @@ const App = () => {
     } else if (val[0].toLowerCase().includes(text.toLowerCase())) {
       return val;
     }
+    return val
   });
 
   return (
