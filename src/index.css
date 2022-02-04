@@ -287,7 +287,7 @@ form-control
   .form-control{
     max-width: 200px;
     min-width: 200px;
-    margin-left: 20px;
+    margin-left: 30px;
   }
   .form-outline{
     min-width: 320px;
@@ -295,5 +295,9 @@ form-control
   .search-bar{
     min-width: 320px;
   }
+  
+.error-message {
+  margin:5px 0 0 20px;
+}
  
 }

@@ -5,7 +5,7 @@ import logo from '../assets/tesodev.png'
 const MainPage = () => {
   return (
     <div className="mainpage">
-      <div>
+      <div className="main-logo">
       <img src={logo} alt="logo" className="img" />
       </div>
       <div className="info">
