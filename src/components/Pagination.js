@@ -12,13 +12,13 @@ const Pagination = ({paginate,output,currentPage,cardPerPage}) => {
 
     return (
         <ul className = "pagination">
-                <li className = "page-item">
+                <li className = "page-item">{/* eslint-disable-next-line*/}
                     <a  onClick={() => paginate(currentPage - 1)} href = "#" className='page-btn'>
                         Prev
                     </a>
                 </li>
             {pageNumbers.slice(0,3).map(number => (
-                <li key = {number} className = "page-item">
+                <li key = {number} className = "page-item">{/* eslint-disable-next-line*/}
                     <a  onClick={() => paginate(number)} href = "#" className={`page-btn ${number === currentPage && 'active-btn'}`}>
                         {number}
                     </a>
@@ -28,13 +28,13 @@ const Pagination = ({paginate,output,currentPage,cardPerPage}) => {
                     ...
                 </li>
                 {pageNumbers.slice(pageNumbers.length-3,pageNumbers.length).map(number => (
-                    <li key = {number} className = {pageNumbers.length > 6 ? "page-item" : "hidden"}>
+                    <li key = {number} className = {pageNumbers.length > 6 ? "page-item" : "hidden"}>{/* eslint-disable-next-line*/}
                         <a  onClick={() => paginate(number)} href = "#" className={`page-btn ${number === currentPage && 'active-btn'}`}>
                             {number}
                         </a>
                     </li>
                 ))}
-                <li className = "page-item">
+                <li className = "page-item">{/* eslint-disable-next-line*/}
                     <a  onClick={() => paginate(currentPage + 1)} href = "#" className='page-btn'>
                      Next
                      </a>

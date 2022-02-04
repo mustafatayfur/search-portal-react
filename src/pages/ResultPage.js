@@ -37,6 +37,7 @@ const ResultPage = () => {
   // Pagination
 
   const [currentPage, setCurrentPage] = useState(1);
+   //eslint-disable-next-line
   const [cardPerPage, setCardPerPage] = useState(5);
 
   const indexOfLastCard = currentPage * cardPerPage;
@@ -116,27 +117,32 @@ const ResultPage = () => {
       </div>
       <div className='main'>
         <div className='dropdown'>
+  {/* eslint-disable-next-line*/}
           <a href='#'>
             <i className='fas fa-sort-alt'></i> Order By
           </a>
           <div className='dropdown__menu'>
             <ul>
               <li>
+              {/* eslint-disable-next-line*/}
                 <a href='#' onClick={() => handleAlphabetic(output)}>
                   Name ascending
                 </a>
               </li>
               <li>
+              {/* eslint-disable-next-line*/}
                 <a onClick={() => handleAlphabeticReverse(output)} href='#'>
                   Name descending
                 </a>
               </li>
               <li>
+              {/* eslint-disable-next-line*/}
                 <a href='#' onClick={() => handleDateReverse(output)}>
                   Year ascending
                 </a>
               </li>
               <li>
+              {/* eslint-disable-next-line*/}
                 <a href='#' onClick={() => handleDate(output)}>
                   Year descending
                 </a>
