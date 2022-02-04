@@ -46,7 +46,14 @@ const ResultPage = () => {
   const currentCards = output.slice(indexofFirstCard, indexOfLastCard);
   console.log(currentCards)
   const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
+    let numberOfPage = Math.ceil(output.length / cardPerPage)
+    if(pageNumber < 1 ){
+      setCurrentPage(numberOfPage)
+    }else if(pageNumber > numberOfPage ){
+      setCurrentPage(1)
+    }else{
+      setCurrentPage(pageNumber)
+    }
   };
 
 
