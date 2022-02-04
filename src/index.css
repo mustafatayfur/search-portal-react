@@ -84,7 +84,6 @@ body{
 .btn-more{
   border: none;
   cursor: pointer;
-  color: #484848;
 }
 .cards{
   border: 1px solid rgb(105, 105, 105);
@@ -209,9 +208,7 @@ body{
 .dropdown__menu ul li a:hover{
   background-color: rgb(202, 200, 200);
 }
-.result-cards{
 
-}
 
 
 /* Pagination ///////////*/
@@ -238,4 +235,7 @@ body{
 .active-btn{
   color: white;
   background-color:#204080 ;
+}
+.hidden{
+  display: none;
 }
