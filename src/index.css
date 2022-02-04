@@ -12,26 +12,58 @@ body{
   justify-content:center;
   align-items: center;
 }
+.mainpage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
 
 .search-bar{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
   width: 50vw;
 }
 .img{
-  margin-bottom: 40px;
+  margin-bottom: -15px;
+}
+.info{
+  width: 20vw;
+  text-align: end;
+  font-size: 12px;
+  font-weight:600;
+  color: #484848;
 }
 .form-control{
   width: 35vw;
   height: 45px;
   border-radius: 10px;
 }
-.add-btn{
-  margin-top: 20px;
+/* error message */
+.error-message {
+  color: #cc0033;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 15px;
+  margin:5px 0 0;
 }
+
+.message {
+  display: none;
+}
+
+.error input[type=search] {
+  background-color: #fce4e4;
+  border: 1px solid #cc0033;
+  outline: none;
+}
+
+.error .error-message {
+  display: inline-block;
+}
+/*   ///*/
 .btn{
   background-color: #204080;
   color: white;
@@ -52,9 +84,10 @@ body{
 .btn-more{
   border: none;
   cursor: pointer;
+  color: #484848;
 }
 .cards{
-  border: 1px solid black;
+  border: 1px solid rgb(105, 105, 105);
   border-radius: 5px;
   width: 45vw;
   margin-top: 20px;
@@ -62,7 +95,6 @@ body{
   flex-direction: column;
   justify-content:center;
   min-width: 300px;
-
 }
 
 .card{
@@ -71,7 +103,7 @@ body{
   flex-direction: row;
   justify-content: space-between;
   border-bottom: 1px solid rgb(155, 154, 154);
-  height: 60px;
+  height: 70px;
   color: #484848;
 }
 .card-right{
@@ -82,25 +114,29 @@ body{
 }
 .card-title{
   min-width:50px;
-  margin-bottom: 0;
+  margin-bottom: 0px;
 }
 .card-left p{
     font-size: 0.7rem;
     font-weight: 100;
 }
 .card-text{
-  font-size: 12px;
-  font-weight: bold;
-  margin:0;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 18px;
+  margin:1px;
 }
 .card:hover{
-  opacity: 0.8;
+  background: #C4C4C4;
   cursor: pointer;
+}
+.card:hover h6{
+  color: white;
 }
 
 .searchinput:hover,
 .form-control:hover{
-  background: linear-gradient(to bottom right, #b1d8ff , rgb(253, 253, 253));
+  background: #C4C4C4;
   color: white;
 }
 
@@ -116,17 +152,20 @@ body{
 
 .result-img{
   position: absolute;
-width: 149px;
-height: 63px;
-left: 37px;
-top: 27px;
+  width: 149px;
+  height: 63px;
+  left: 37px;
+  top: 27px;
+}
+.btn-img{
+  border: none;
 }
 .form-outline{
   margin-top: 30px;
 }
 .dropdown{
   position: relative;
-  margin: 40px;
+  margin: 40px 20px 0px auto;
   margin-left: 40vw;
 }
 .dropdown a{
@@ -143,7 +182,7 @@ top: 27px;
 .dropdown:hover .dropdown__menu{
   display: block;
   position: absolute;
-  right: -50;
+  right: -13vh;
   top:100%;
 }
 .dropdown__menu ul{
@@ -170,6 +209,10 @@ top: 27px;
 .dropdown__menu ul li a:hover{
   background-color: rgb(202, 200, 200);
 }
+.result-cards{
+
+}
+
 
 /* Pagination ///////////*/
 
@@ -177,18 +220,22 @@ top: 27px;
   display: flex;
   flex-direction: row;
   justify-content:center;
+  margin-top: 50px;
 }
-.pagination li {
+.page-item {
   list-style-type: none;
-  border:1px solid rgb(155, 155, 155);
-  border-radius: 4px;
+  
   margin: 4px;
 }
-.pagination li a{
+.page-btn{
   text-decoration: none;
-  margin:0px 5px;
+  margin:0px 2px;
+  padding:0 5px ;
   font-size: 12px;
+  border:1px solid rgb(155, 155, 155);
+  border-radius: 4px;
 }
-
-
-
+.active-btn{
+  color: white;
+  background-color:#204080 ;
+}

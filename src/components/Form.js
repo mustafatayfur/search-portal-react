@@ -1,37 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
 import  { useNavigate } from 'react-router-dom'
 import { engineContext } from "../context/engineContext";
 import Card from "./Card";
-import logo from '../assets/tesodev.png'
+
 
 const Form = () => {
   const { text,output,setText } = useContext(engineContext);
-
+  const [isSearched, setIsSearched] = useState(true)
+  console.log(output)
   // Search Bar Optimization
   const handleClick = (e) => {
     e.preventDefault();
-    if (!text) {
-      alert("Fill in the gap...");
-    } else {
-      setText(text);
+    if(text){
+      setIsSearched(true)
+    }else{
+      setIsSearched(false)
     }
+    setText(text);
   };
 
    // Addpage ve ResultPage sayfalarına gidiş
 
   const navigate = useNavigate();
-  const goAddPage = () => {
-    navigate("/addpage");
-  };
+
   const goResult = () => {
     navigate({ pathname: "/resultpage", output });
   };
+ 
 
   return (
     <div className="search-bar">
-      <img src={logo} alt="logo" className="img" />
-      <div className="form-outline">
+     
+      <div className={isSearched ? "form-outline":"input-group error"}>
         <input
           type="search"
           id="form1 "
@@ -44,18 +45,9 @@ const Form = () => {
             Search
         </button>
       </div>
+      <div className={isSearched ? "message":"error-message"}>Please enter something...</div>
 
-      <div className="add-btn">
-        <button
-          type="button"
-          className="btn"
-          onClick={goAddPage}
-        >
-          Add New Record
-        </button>
-      </div>
-
-      <div className="cards">
+      <div className={output.length > 0 ? "cards" : ''}>
         {output.slice(0, 3).map((item, index) => <Card key={index} item={item} />)}
 
         {output.length>3 ? (

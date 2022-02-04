@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import Pagination from "../components/Pagination";
 import Card from "../components/Card";
@@ -10,11 +10,28 @@ import logo from "../assets/tesodev.png";
 
 const ResultPage = () => {
   const { output: filteredData, text, setText } = useContext(engineContext);
-  const [output, setOutput] = useState(filteredData);
-
+  const [output, setOutput] = useState([]);
+  const [isSearched, setIsSearched] = useState(true)
+  console.log(filteredData)
   const navigate = useNavigate();
   const goMain = () => {
     navigate("/");
+  };
+  useEffect(() => {
+    setOutput(filteredData)
+  }, [filteredData]);
+  console.log(output)
+  
+    // Search Bar Optimization
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    if(text){
+      setIsSearched(true)
+    }else{
+      setIsSearched(false)
+    }
+    setText(text);
   };
 
   // Pagination
@@ -24,14 +41,14 @@ const ResultPage = () => {
 
 
   const indexOfLastCard = currentPage * cardPerPage;
+  console.log(currentPage)
   const indexofFirstCard = indexOfLastCard - cardPerPage;
   const currentCards = output.slice(indexofFirstCard, indexOfLastCard);
-
+  console.log(currentCards)
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
- 
 
   //Sorting
 
@@ -65,35 +82,30 @@ const ResultPage = () => {
     setOutput([...output]);
   };
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    if (!text) {
-      alert("Fill in the gap...");
-    } else {
-      setText(text);
-    }
-  };
+  
+  
 
   return (
     <div className='main'>
       <div className='result-img'>
-        <button type='button' className=' ' onClick={goMain}>
+        <button type='button' className='btn-img' onClick={goMain}>
           <img src={logo} alt='logo' />
         </button>
       </div>
-      <div className='form-outline'>
+      <div className={isSearched ? "form-outline":"input-group error"}>
         <input
-          type='search'
-          id='form1 '
-          className='form-control'
-          placeholder='Enter name/surname'
+          type="search"
+          id="form1 "
+          className="form-control"
+          placeholder="Enter name/surname"
           onChange={(e) => setText(e.target.value)}
           value={text}
         />
-        <button type='button' className='btn' onClick={handleClick}>
-          Search
+        <button type="button" className="btn" onClick={handleClick}>
+            Search
         </button>
       </div>
+      <div className={isSearched ? "message":"error-message"}>Please enter something...</div>
       <div className='dropdown'>
         <a
           href='#'
@@ -132,15 +144,16 @@ const ResultPage = () => {
         </div>
       </div>
 
-      <div className='cards'>
+      <div className='result-cards'>
         {currentCards.map((item, index) => (
           <Card key={index} item={item} />
         ))}
       </div>
-      {output.length > 5 ? (
+      { output.length > 5 ? (
         <Pagination
           paginate={paginate}
           output={output}
+          currentPage={currentPage}
           cardPerPage={cardPerPage}
         />
       ) : null}
