@@ -11,25 +11,25 @@ import logo from "../assets/tesodev.png";
 const ResultPage = () => {
   const { output: filteredData, text, setText } = useContext(engineContext);
   const [output, setOutput] = useState([]);
-  const [isSearched, setIsSearched] = useState(true)
-  console.log(filteredData)
+  const [isSearched, setIsSearched] = useState(true);
+  console.log(filteredData);
   const navigate = useNavigate();
   const goMain = () => {
     navigate("/");
   };
   useEffect(() => {
-    setOutput(filteredData)
+    setOutput(filteredData);
   }, [filteredData]);
-  console.log(output)
-  
-    // Search Bar Optimization
+  console.log(output);
+
+  // Search Bar Optimization
 
   const handleClick = (e) => {
     e.preventDefault();
-    if(text){
-      setIsSearched(true)
-    }else{
-      setIsSearched(false)
+    if (text) {
+      setIsSearched(true);
+    } else {
+      setIsSearched(false);
     }
     setText(text);
   };
@@ -39,23 +39,21 @@ const ResultPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [cardPerPage, setCardPerPage] = useState(5);
 
-
   const indexOfLastCard = currentPage * cardPerPage;
-  console.log(currentPage)
+  console.log(currentPage);
   const indexofFirstCard = indexOfLastCard - cardPerPage;
   const currentCards = output.slice(indexofFirstCard, indexOfLastCard);
-  console.log(currentCards)
+  console.log(currentCards);
   const paginate = (pageNumber) => {
-    let numberOfPage = Math.ceil(output.length / cardPerPage)
-    if(pageNumber < 1 ){
-      setCurrentPage(numberOfPage)
-    }else if(pageNumber > numberOfPage ){
-      setCurrentPage(1)
-    }else{
-      setCurrentPage(pageNumber)
+    let numberOfPage = Math.ceil(output.length / cardPerPage);
+    if (pageNumber < 1) {
+      setCurrentPage(numberOfPage);
+    } else if (pageNumber > numberOfPage) {
+      setCurrentPage(1);
+    } else {
+      setCurrentPage(pageNumber);
     }
   };
-
 
   //Sorting
 
@@ -89,81 +87,78 @@ const ResultPage = () => {
     setOutput([...output]);
   };
 
-  
-  
-
   return (
-    <div className='main'>
-      <div className='result-img'>
-        <button type='button' className='btn-img' onClick={goMain}>
-          <img src={logo} alt='logo' />
-        </button>
-      </div>
-      <div className={isSearched ? "form-outline":"input-group error"}>
-        <input
-          type="search"
-          id="form1 "
-          className="form-control"
-          placeholder="Enter name/surname"
-          onChange={(e) => setText(e.target.value)}
-          value={text}
-        />
-        <button type="button" className="btn" onClick={handleClick}>
-            Search
-        </button>
-      </div>
-      <div className={isSearched ? "message":"error-message"}>Please enter something...</div>
-      <div className='dropdown'>
-        <a
-          href='#'
-          >
-          <i className='fas fa-sort-alt'></i> Order By
-        </a>
-        <div className='dropdown__menu'>
-          <ul>
-            <li>
-              <a
-                href='#'
-                onClick={() => handleAlphabetic(output)}>
-                Name ascending
-              </a>
-            </li>
-            <li>
-              <a 
-                onClick={() => handleAlphabeticReverse(output)}
-                href='#'>
-                Name descending
-              </a>
-            </li>
-            <li>
-              <a href='#'
-              onClick={() => handleDateReverse(output)}>
-                Year ascending
-              </a>
-            </li>
-            <li>
-              <a href='#'
-                onClick={() => handleDate(output)}>
-                Year descending
-              </a>
-            </li>
-          </ul>
+    <div>
+      <div className='img-search'>
+        <div className='result-img'>
+          <button type='button' className='btn-img' onClick={goMain}>
+            <img src={logo} alt='logo' className="image" />
+          </button>
         </div>
+        <div className="search-button">
+          <div className={isSearched ? "form-outline" : "input-group error"}>
+          <input
+            type='search'
+            id='form1 '
+            className='form-control'
+            placeholder='Enter name/surname'
+            onChange={(e) => setText(e.target.value)}
+            value={text}
+          />
+          <button type='button' className='btn' onClick={handleClick}>
+            Search
+          </button>
+        </div>
+        <div className={isSearched ? "message" : "error-message"}>
+          Please enter something...
+        </div> 
       </div>
+      </div>
+      <div className='main'>
+        <div className='dropdown'>
+          <a href='#'>
+            <i className='fas fa-sort-alt'></i> Order By
+          </a>
+          <div className='dropdown__menu'>
+            <ul>
+              <li>
+                <a href='#' onClick={() => handleAlphabetic(output)}>
+                  Name ascending
+                </a>
+              </li>
+              <li>
+                <a onClick={() => handleAlphabeticReverse(output)} href='#'>
+                  Name descending
+                </a>
+              </li>
+              <li>
+                <a href='#' onClick={() => handleDateReverse(output)}>
+                  Year ascending
+                </a>
+              </li>
+              <li>
+                <a href='#' onClick={() => handleDate(output)}>
+                  Year descending
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
 
-      <div className='result-cards'>
-        {currentCards.map((item, index) => (
-          <Card key={index} item={item} />
-        ))}
+        <div className='result-cards'>
+          {currentCards.map((item, index) => (
+            <Card key={index} item={item} />
+          ))}
+        </div>
+        {output.length > 5 ? (
+          <Pagination
+            paginate={paginate}
+            output={output}
+            currentPage={currentPage}
+            cardPerPage={cardPerPage}
+          />
+        ) : null}
       </div>
-      { output.length > 5 ? (
-        <Pagination
-          paginate={paginate}
-          output={output}
-          currentPage={currentPage}
-          cardPerPage={cardPerPage}
-        />
-      ) : null}
     </div>
   );
 };

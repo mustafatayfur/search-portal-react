@@ -4,8 +4,6 @@
 
 }
 body{
-  /* background-color:darkgrey ;  */
-  /* font-family: 'Montserrat', sans-serif; */
   font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   display: flex;
   flex-direction: column;
@@ -74,7 +72,10 @@ body{
   height: 45px;
   border-radius: 10px;
   cursor: pointer;
- 
+}
+.btn:hover{
+  background: #4F75C2;
+
 }
 .show-more{
   display: flex;
@@ -148,19 +149,30 @@ body{
 }
 
 /*  Result Page   //////////////*/
-
+.img-search{
+  display: flex;
+  flex-direction: row;
+  margin-left: -15vw;
+  
+}
 .result-img{
-  position: absolute;
-  width: 149px;
-  height: 63px;
-  left: 37px;
-  top: 27px;
+ margin-left: -2vw;
+ margin-top: 20px;
+}
+.search-button{
+  margin-left: 2vw;
+  margin-top: 30px;
 }
 .btn-img{
   border: none;
+  margin-bottom: 20px;
+}
+.image:hover{
+  opacity:0.8 ;
+  cursor: pointer;
 }
 .form-outline{
-  margin-top: 30px;
+  /* margin-left: 1vw; */
 }
 .dropdown{
   position: relative;
@@ -206,11 +218,9 @@ body{
   justify-content: flex-start;  
 }
 .dropdown__menu ul li a:hover{
-  background-color: rgb(202, 200, 200);
+  background: #C4C4C4;
+  color: white;
 }
-
-
-
 /* Pagination ///////////*/
 
 .pagination {
@@ -238,4 +248,34 @@ body{
 }
 .hidden{
   display: none;
+}
+
+@media screen and (max-width: 700px){
+  .img-search{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .result-img{
+    /* margin-left: 12vw; */
+    margin-top: 10px;
+   }
+   .search-button{
+     margin-left: 2vw;
+   }
+   .card{
+    flex-direction: column;
+   
+  }
+  .pagination {
+    padding-left: 10px;
+  }
+  .dropdown:hover .dropdown__menu{
+    right: -4vh;
+  }
+  .form-control{
+    max-width: 200px;
+  }
+ 
 }
