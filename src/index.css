@@ -1,5 +1,5 @@
 *{
-  border: 1px solid red;
+  /* border: 1px solid red; */
   box-sizing: border-box;
 
 }
@@ -27,9 +27,6 @@ form-control
 }
 .img{
   margin-bottom: -15px;
-}
-.main-logo{
-  
 }
 .info{
   width: 20vw;
