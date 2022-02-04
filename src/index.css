@@ -1,5 +1,5 @@
 *{
-  /* border: 1px solid red; */
+  border: 1px solid red;
   box-sizing: border-box;
 
 }
@@ -15,8 +15,9 @@ body{
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
+  min-width: 320px;
 }
-
+form-control
 .search-bar{
   display: flex;
   flex-direction: column;
@@ -27,8 +28,12 @@ body{
 .img{
   margin-bottom: -15px;
 }
+.main-logo{
+  
+}
 .info{
   width: 20vw;
+  min-width: 100px;
   text-align: end;
   font-size: 12px;
   font-weight:600;
@@ -40,6 +45,7 @@ body{
   border-radius: 10px;
 }
 /* error message */
+
 .error-message {
   color: #cc0033;
   display: inline-block;
@@ -109,6 +115,7 @@ body{
 .card-right{
   flex-basis: 50%;
 }
+
 .card-left{
   flex-basis: 50%;
 }
@@ -171,9 +178,7 @@ body{
   opacity:0.8 ;
   cursor: pointer;
 }
-.form-outline{
-  /* margin-left: 1vw; */
-}
+
 .dropdown{
   position: relative;
   margin: 40px 20px 0px auto;
@@ -256,6 +261,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 320;
   }
   .result-img{
     /* margin-left: 12vw; */
@@ -263,6 +269,10 @@ body{
    }
    .search-button{
      margin-left: 2vw;
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
    }
    .card{
     flex-direction: column;
@@ -276,6 +286,14 @@ body{
   }
   .form-control{
     max-width: 200px;
+    min-width: 200px;
+    margin-left: 20px;
+  }
+  .form-outline{
+    min-width: 320px;
+  }
+  .search-bar{
+    min-width: 320px;
   }
  
 }
